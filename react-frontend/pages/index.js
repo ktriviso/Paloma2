@@ -5,10 +5,17 @@ export default function Home() {
   const { data } = useQuery('api/content', () => axios("http://127.0.0.1:5000/api/content").then((res) => res.data))
 
   return (
-    <ul>
-      {data.entries.map(item => (
-        <li>{item.title}</li>
+    <div className='flex flex-wrap bg-gray-200'>
+      {data?.entries?.map(item => (
+        <div className='mx-auto'>
+          <div className='w-52 m-5 border-2 border-black rounded-xl overflow-hidden bg-white flex flex-col items-center'>
+            <img src={item.images["Poster Art"].url} width={208} />
+            <div className='p-5 truncate w-full text-center text-sm'>
+              {item.title}
+            </div>
+          </div>
+        </div>
       ))}
-    </ul>
+    </div>
   )
 }
