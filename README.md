@@ -18,10 +18,10 @@ We're looking for code that is...
 
 In this repository, we've initialized a full stack application and installed a few helpful frameworks that will hopefully avoid requiring you to reinvent the wheel. Below are the installed technologies, their role in the stack, and links to the parts of the documentation that can quickly get you up to speed on how they work if they are new to you:
 
-* Flask - [Quickstart & Basics](https://flask.palletsprojects.com/en/2.0.x/quickstart/) (10 min read)
-* Tailwind -  [Core Concepts](https://tailwindcss.com/docs/utility-first) (10 min read)
-* NextJS - Improved routing compared to vanilla React [Tutorial](https://nextjs.org/learn/basics/create-nextjs-app?utm_source=next-site&utm_medium=nav-cta&utm_campaign=next-website) (\~15 min)
-* React Query - Helps with networking orchastration and client-side API data storage. [Overview and Simple Example](https://react-query.tanstack.com/overview) (5 min read)
+* Flask - Backend API server [Quickstart & Basics](https://flask.palletsprojects.com/en/2.0.x/quickstart/) (10 min read)
+* Tailwind - UI styling [Core Concepts](https://tailwindcss.com/docs/utility-first) (10 min read)
+* NextJS - Basically React v16 w/ enhancements to improve routing and page load times [Tutorial](https://nextjs.org/learn/basics/create-nextjs-app?utm_source=next-site&utm_medium=nav-cta&utm_campaign=next-website) (\~15 min)
+* React Query - Networking orchastration and client-side API data storage. [Overview and Simple Example](https://react-query.tanstack.com/overview) (5 min read)
 * Axois - HTTP library for actually making the API (used by React Query)
 
 Feel free to install or use other libraries as you see fit. If a knowledge gap in a pre-installed library becomes a blocker to completing the challenge, feel free to abandon it entirely. **We'd rather see a creative solution that meets all solution requirements, than a half-completed challenge that uses all pre-install libraries.**
