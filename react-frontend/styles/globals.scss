@@ -1,0 +1,96 @@
+/* ./styles/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Sumana&display=swap");
+
+@layer base {
+  body {
+    @apply font-lato text-blue-dark bg-gray-lightest;
+  }
+  h1 {
+    @apply text-3xl font-lato font-normal text-blue-dark;
+  }
+  h2 {
+    @apply text-xl font-lato font-normal text-blue-dark;
+  }
+  h3 {
+    @apply text-base font-lato font-bold text-blue-dark;
+  }
+  h4 {
+    @apply text-sm font-lato font-bold text-blue-dark;
+  }
+  th {
+    @apply text-sm font-lato font-bold text-blue-dark whitespace-nowrap;
+  }
+  button {
+    @apply focus:outline-none;
+  }
+}
+
+// Additional Typography Styles not mapped to specific tags
+
+@layer components {
+  td,
+  .type-body {
+    @apply text-base font-lato font-normal text-blue-dark;
+  }
+  .type-descriptor {
+    @apply text-sm font-lato font-normal text-blue-dark;
+  }
+  .type-facebook-placeholder {
+    @apply text-sm font-roboto font-normal text-gray-dark;
+  }
+  .type-facebook {
+    @apply text-sm font-roboto font-normal text-blue-dark;
+  }
+  .type-facebook-title {
+    @apply text-sm font-roboto font-bold text-blue-dark;
+  }
+  .type-footnote {
+    @apply text-sm font-lato font-normal text-blue-dark italic;
+  }
+  .type-tags {
+    @apply text-xs font-lato font-bold text-blue-dark;
+  }
+  .type-details {
+    @apply text-xs font-lato font-normal text-blue-dark;
+  }
+  .type-message {
+    @apply text-sm font-roboto font-normal text-blue-dark;
+  }
+}
+
+// Table Styling (other than td and th typography, which is set above)
+
+@layer components {
+  table {
+    @apply bg-white border border-gray-light rounded border-separate border-spacing-0;
+  }
+  th,
+  td {
+    @apply p-5 border-b border-gray-light text-left;
+    .actions {
+      @apply text-right;
+    }
+  }
+  tr:last-child {
+    td {
+      @apply border-b-0;
+    }
+  }
+  table .truncate {
+    max-width: 280px;
+  }
+}
+
+// Missing utilities
+
+@layer utilities {
+  .border-spacing-0 {
+    border-spacing: 0;
+  }
+}

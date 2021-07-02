@@ -7,6 +7,6 @@ filename = os.path.join(app.root_path, 'data.json')
 with open(filename) as file:
     mock_data = json.load(file)
 
-@app.route('/api/movies', methods=["GET"])
+@app.route('/api/content', methods=["GET"])
 def index():
     return mock_data
