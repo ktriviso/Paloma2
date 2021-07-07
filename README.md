@@ -24,7 +24,7 @@ In this repository, we've initialized a full stack application and installed a f
 * React Query - Networking orchastration and client-side API data storage. [Overview and Simple Example](https://react-query.tanstack.com/overview) (5 min read)
 * Axois - HTTP library for actually making the API (used by React Query)
 
-Feel free to install or use other libraries as you see fit. If a knowledge gap in a pre-installed library becomes a blocker to completing the challenge, feel free to abandon it entirely. **We'd rather see a solution leveraging entirely different frameworks that meets all solution requirements, than a half-completed challenge that using only the pre-installed libraries.** (Love Vue? Use Vue. Love Node? Use Node. Can't get a local database up and running? Spin up a remote DB on AWS or Google Cloud!)
+Feel free to install or use other libraries as you see fit. If a knowledge gap in a pre-installed library becomes a blocker to completing the challenge, feel free to abandon it entirely. **We'd rather see a solution leveraging entirely different frameworks that meets all solution requirements, than a half-completed challenge that using only the pre-installed libraries.**
 
 **If different commands or steps are required to install or run your final solution application, please add those instructions to the top of your solution README.**
 
