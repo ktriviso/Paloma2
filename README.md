@@ -24,7 +24,9 @@ In this repository, we've initialized a full stack application and installed a f
 * React Query - Networking orchastration and client-side API data storage. [Overview and Simple Example](https://react-query.tanstack.com/overview) (5 min read)
 * Axois - HTTP library for actually making the API (used by React Query)
 
-Feel free to install or use other libraries as you see fit. If a knowledge gap in a pre-installed library becomes a blocker to completing the challenge, feel free to abandon it entirely. **We'd rather see a creative solution that meets all solution requirements, than a half-completed challenge that uses all pre-install libraries.**
+Feel free to install or use other libraries as you see fit. If a knowledge gap in a pre-installed library becomes a blocker to completing the challenge, feel free to abandon it entirely. **We'd rather see a solution leveraging entirely different frameworks that meets all solution requirements, than a half-completed challenge that using only the pre-installed libraries.** (Love Vue? Use Vue. Love Node? Use Node. Can't get a local database up and running? Spin up a remote DB on AWS or Google Cloud!)
+
+**If different commands or steps are required to install or run your final solution application, please add those instructions to the top of your solution README.**
 
 ## Setup
 
@@ -34,7 +36,7 @@ If you have not already, it is highly recommended you fork the original reposito
 
 ### Install and Run Backend Development Server
 
-(from the root directory)
+(from the `flask-backend` directory)
 ```bash
 cd flask-backend
 python3 -m venv venv
@@ -57,7 +59,7 @@ flask run
 
 If you don’t have Node.js installed, [install it from here](https://nodejs.org/en/). You’ll need Node.js version 10.13 or later.
 
-(from the root directory)
+(from the `react-frontend` directory)
 ```bash
 npm ci
 npm run dev
