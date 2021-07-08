@@ -28,6 +28,10 @@ Feel free to install or use other libraries as you see fit. If a knowledge gap i
 
 **If different commands or steps are required to install or run your final solution application, please add those instructions to the top of your solution README.**
 
+### Submission
+
+Once you've completed the challenge, please upload it to a public Github/Bitbucket and email the link to your interviewer. Please also be able to run the solution locally so we can walk through your solution to the databases section on your machine (over screen share).
+
 ## Setup
 
 ### Fork the Repo
