@@ -30,7 +30,7 @@ Feel free to install or use other libraries as you see fit. If a knowledge gap i
 
 ### Submission
 
-Once you've completed the challenge, please upload it to a public Github/Bitbucket and email the link to your interviewer. Please also be able to run the solution locally so we can walk through your solution to the databases section on your machine (over screen share).
+Once you've completed the challenge, please upload it to a public Github/Bitbucket and email the link to your interviewer. You must send over your solution at least 24hrs prior to the interview so that the interviewer has enough to review. Please also be able to run the solution locally so we can walk through your solution to the databases section on your machine (over screen share).
 
 ## Setup
 
