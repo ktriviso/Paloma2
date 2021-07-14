@@ -34,3 +34,14 @@ def movies():
     if(len(filtered_items)):
         return {'entries': filtered_items}
     return {'response': 404, 'entries': filtered_items}
+
+@app.route('/api/new', methods=["POST"])
+@cross_origin(supports_credentials=True)
+def new():
+    json_data = request.get_json(force=True)
+    mock_data['entries'].append(json_data['params'])
+    json.dump(mock_data, open(filename,"w"))
+
+    # save json_data
+    # return actual response from db
+    return {'response': 200}

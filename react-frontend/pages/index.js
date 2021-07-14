@@ -14,6 +14,7 @@ import { useQuery } from "react-query";
 export default function Home() {
   const [programType, setProgramType] = useState(null);
   const [searchValue, setSearchValue] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const [showError, setShowError] = useState(false);
   const [allResults, setAllResults] = useState([]);
   const [showAllPosters, setShowAllPosters] = useState(true);
@@ -37,6 +38,13 @@ export default function Home() {
 
     setShowError(data?.response === 404);
     return data?.entries;
+  };
+
+  const postData = async (value) => {
+    const poster = await axios.post(`http://127.0.0.1:5000/api/new`, {
+      params: value,
+    });
+    return poster?.data;
   };
 
   const { data, isLoading, isError } = useQuery(
@@ -66,6 +74,13 @@ export default function Home() {
     await fetchData(programType, searchValue);
   };
 
+  const saveNewPoster = async (newPoster) => {
+    const { response } = await postData(newPoster);
+    if (response === 200) toggleModal();
+  };
+
+  const toggleModal = () => setShowModal((showModal) => !showModal);
+
   useEffect(() => {
     if (data?.length) {
       setAllResults(data);
@@ -76,9 +91,18 @@ export default function Home() {
 
   return (
     <div className="relative">
+      {showModal && (
+        <Modal passPosterData={saveNewPoster} closeModal={toggleModal} />
+      )}
       <header className="flex items-stretch justify-between p-4 flex-col md:flex-row">
         <Search passSearchValue={passSearchValue} clearSearch={clearSearch} />
         <div className="flex flex-col mt-4 md:flex-row md:mt-0">
+          <button
+            className="border-2 border-black p-4 mr-2 rounded-full text-white w-full bg-black hover:bg-white hover:text-black md:w-1/12 md:mt-0 min-w-130"
+            onClick={toggleModal}
+          >
+            Add New
+          </button>
           <select
             className="form-select w-full py-4 px-4 rounded-full mt-4 md:w-1/6 md:mt-0 min-w-130 cursor-pointer"
             value={programType || ""}
