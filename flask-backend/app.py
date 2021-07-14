@@ -29,7 +29,7 @@ def series():
 @app.route('/api/movies', methods=["GET"])
 @cross_origin(supports_credentials=True)
 def movies():
-    programType = 'series'
+    programType = 'movies'
     filtered_items = query_data(programType)
     # filtered_items = list(filter(lambda x: x['programType'] == 'movie', mock_data['entries']))
     search_string = request.args.get('search')
