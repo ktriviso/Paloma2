@@ -18,7 +18,9 @@ def series():
     if(search_string and len(search_string)):
         filtered_items = list(filter(lambda x: search_string in x['title'].lower() or search_string in x['description'].lower(), filtered_items))
 
-    return {'entries': filtered_items}
+    if(len(filtered_items)):
+        return {'entries': filtered_items}
+    return {'response': 404, 'entries': filtered_items}
 
 @app.route('/api/movies', methods=["GET"])
 @cross_origin(supports_credentials=True)
@@ -29,4 +31,6 @@ def movies():
     if(search_string and len(search_string)):
         filtered_items = list(filter(lambda x: search_string in x['title'].lower() or search_string in x['description'].lower(), filtered_items))
 
-    return {'entries': filtered_items}
+    if(len(filtered_items)):
+        return {'entries': filtered_items}
+    return {'response': 404, 'entries': filtered_items}
