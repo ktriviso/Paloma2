@@ -11,7 +11,6 @@ import { useQuery } from "react-query";
 
 export default function Home() {
   const [programType, setProgramType] = useState(null);
-  const [showError, setShowError] = useState(false);
   const [allResults, setAllResults] = useState([]);
 
   const updateProgramType = async (e) => {
@@ -24,8 +23,6 @@ export default function Home() {
     const { data } = await axios.get(
       `http://127.0.0.1:5000/api/${filter || "movies"}`
     );
-
-    setShowError(data?.response === 404);
     return data?.entries;
   };
 
@@ -62,11 +59,6 @@ export default function Home() {
         </div>
       </header>
       <div className="flex flex-wrap bg-gray-200">
-        {showError && (
-          <div className="p-4">
-            No titles found. Please try searching something else.
-          </div>
-        )}
         {allResults?.length
           ? allResults?.map((item, i) => <Poster item={item} i={i} key={i} />)
           : null}
