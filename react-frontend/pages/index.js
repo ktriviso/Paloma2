@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 
 import { Loader } from "../components/Loader/Loader";
 import { Poster } from "../components/Poster/Poster";
-import { Search } from "../components/Search/Search";
 import axios from "axios";
 import { useQuery } from "react-query";
 
@@ -12,11 +11,8 @@ import { useQuery } from "react-query";
 
 export default function Home() {
   const [programType, setProgramType] = useState(null);
-  const [searchValue, setSearchValue] = useState(null);
   const [showError, setShowError] = useState(false);
   const [allResults, setAllResults] = useState([]);
-  const [showAllPosters, setShowAllPosters] = useState(true);
-  const [searchResults, setSearchResults] = useState([]);
 
   const updateProgramType = async (e) => {
     const { value } = e.target;
@@ -38,26 +34,9 @@ export default function Home() {
     async () => await fetchData(programType)
   );
 
-  const passSearchValue = async (inputValue) => {
-    setSearchValue(inputValue);
-    const data = await fetchData(programType);
-
-    if (data) {
-      setSearchResults(data);
-      setShowAllPosters(false);
-    }
-  };
-
-  const clearSearch = () => {
-    setSearchValue(null);
-    setSearchResults([]);
-    setShowError(false);
-    setShowAllPosters(true);
-  };
-
   const passProgramType = async (type) => {
     setProgramType(type);
-    await fetchData(programType, searchValue);
+    await fetchData(programType);
   };
 
   useEffect(() => {
@@ -88,13 +67,8 @@ export default function Home() {
             No titles found. Please try searching something else.
           </div>
         )}
-        {showAllPosters && allResults?.length
+        {allResults?.length
           ? allResults?.map((item, i) => <Poster item={item} i={i} key={i} />)
-          : null}
-        {searchResults?.length
-          ? searchResults?.map((item, i) => (
-              <Poster item={item} i={i} key={i} />
-            ))
           : null}
       </div>
     </div>
