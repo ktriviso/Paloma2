@@ -1,5 +1,5 @@
 import os
-from flask import Flask, render_template, json, current_app as app
+from flask import Flask, render_template, json, request, current_app as app
 from flask_cors import CORS, cross_origin
 
 app = Flask(__name__)
@@ -13,10 +13,20 @@ with open(filename) as file:
 @cross_origin(supports_credentials=True)
 def series():
     filtered_items = list(filter(lambda x: x['programType'] == 'series', mock_data['entries']))
+    search_string = request.args.get('search')
+
+    if(search_string and len(search_string)):
+        filtered_items = list(filter(lambda x: search_string in x['title'].lower() or search_string in x['description'].lower(), filtered_items))
+
     return {'entries': filtered_items}
 
 @app.route('/api/movies', methods=["GET"])
 @cross_origin(supports_credentials=True)
 def movies():
     filtered_items = list(filter(lambda x: x['programType'] == 'movie', mock_data['entries']))
+    search_string = request.args.get('search')
+
+    if(search_string and len(search_string)):
+        filtered_items = list(filter(lambda x: search_string in x['title'].lower() or search_string in x['description'].lower(), filtered_items))
+
     return {'entries': filtered_items}
