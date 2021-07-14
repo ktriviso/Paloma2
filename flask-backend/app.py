@@ -1,6 +1,8 @@
 import os
+import boto3
 from flask import Flask, render_template, json, request, current_app as app
 from flask_cors import CORS, cross_origin
+from queries import put_data, query_data
 
 app = Flask(__name__)
 CORS(app, support_credentials=True)
@@ -12,7 +14,9 @@ with open(filename) as file:
 @app.route('/api/tv', methods=["GET"])
 @cross_origin(supports_credentials=True)
 def series():
-    filtered_items = list(filter(lambda x: x['programType'] == 'series', mock_data['entries']))
+    programType = 'series'
+    filtered_items = query_data(programType)
+    # filtered_items = list(filter(lambda x: x['programType'] == 'series', mock_data['entries']))
     search_string = request.args.get('search')
 
     if(search_string and len(search_string)):
@@ -25,7 +29,9 @@ def series():
 @app.route('/api/movies', methods=["GET"])
 @cross_origin(supports_credentials=True)
 def movies():
-    filtered_items = list(filter(lambda x: x['programType'] == 'movie', mock_data['entries']))
+    programType = 'series'
+    filtered_items = query_data(programType)
+    # filtered_items = list(filter(lambda x: x['programType'] == 'movie', mock_data['entries']))
     search_string = request.args.get('search')
 
     if(search_string and len(search_string)):
@@ -39,9 +45,10 @@ def movies():
 @cross_origin(supports_credentials=True)
 def new():
     json_data = request.get_json(force=True)
-    mock_data['entries'].append(json_data['params'])
-    json.dump(mock_data, open(filename,"w"))
+    # mock_data['entries'].append(json_data['params'])
+    # json.dump(mock_data, open(filename,"w"))
+    return put_data(json_data['params'])
 
     # save json_data
     # return actual response from db
-    return {'response': 200}
+    # return {'response': 200}
