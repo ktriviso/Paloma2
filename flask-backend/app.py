@@ -9,7 +9,14 @@ filename = os.path.join(app.root_path, 'titles.json')
 with open(filename) as file:
     mock_data = json.load(file)
 
-@app.route('/api/content', methods=["GET"])
+@app.route('/api/tv', methods=["GET"])
 @cross_origin(supports_credentials=True)
-def index():
-    return mock_data
+def series():
+    filtered_items = list(filter(lambda x: x['programType'] == 'series', mock_data['entries']))
+    return {'entries': filtered_items}
+
+@app.route('/api/movies', methods=["GET"])
+@cross_origin(supports_credentials=True)
+def movies():
+    filtered_items = list(filter(lambda x: x['programType'] == 'movie', mock_data['entries']))
+    return {'entries': filtered_items}
